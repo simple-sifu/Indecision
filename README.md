@@ -1,7 +1,6 @@
 # Indecision
 
-#start up live-server
-npm install live-server
+# start up
 live-server public
 
 # using Babel
