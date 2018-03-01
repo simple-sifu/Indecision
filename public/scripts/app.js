@@ -4,7 +4,7 @@ console.log("app.js is running");
 
 app = {
     title: 'Indecision App',
-    subtitle: 'This is secondary'
+    subtitle: 'This is my subtitle'
 };
 // JSX - Javascript XML
 var template = React.createElement(
