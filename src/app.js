@@ -4,7 +4,7 @@ var app = {
     title: 'Indecision App',
     subtitle: 'This is subtitle'
 };
-// JSX - Javascript XML
+
 var template = (
     <div>
         <h1>{app.title}</h1>

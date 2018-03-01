@@ -6,7 +6,7 @@ var app = {
     title: 'Indecision App',
     subtitle: 'This is subtitle'
 };
-// JSX - Javascript XML
+
 var template = React.createElement(
     'div',
     null,
