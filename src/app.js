@@ -12,14 +12,17 @@ var template = (
         </ol>
     </div>
 );
-var userName = 'Andrew';
-var userAge = 26;
-var userLocation = 'New York'
+
+user = {
+    name: 'Andrew',
+    age: 26,
+    location: 'New York'
+}
 var template2 = (
     <div>
-        <h1>{userName}</h1>
-        <p>Age: {userAge}</p>
-        <p>Location: {userLocation}</p>
+        <h1>{user.name}</h1>
+        <p>Age: {user.age}</p>
+        <p>Location: {user.location}</p>
 
         <ol>
             <li>Item One</li>
