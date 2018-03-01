@@ -1,10 +1,14 @@
 console.log("app.js is running")
 
+app = {
+    title: 'Indecision App',
+    subtitle: 'This is secondary'
+};
 // JSX - Javascript XML
 var template = (
     <div>
-        <h1>Indecision App</h1>
-        <p>This is some info</p>
+        <h1>app.title</h1>
+        <p>app.subtitle</p>
 
         <ol>
             <li>Item One</li>
@@ -33,4 +37,4 @@ var template2 = (
 var appRoot = document.getElementById('app');
 
 
-ReactDOM.render(template2, appRoot)
+ReactDOM.render(template, appRoot)
