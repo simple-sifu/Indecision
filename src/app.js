@@ -1,14 +1,23 @@
 console.log("app.js is running")
 
+// if statements
+// ternary operators
+// logical and operator
+
+// only render the subtitle (and p tag) if subtitle exist - logical and operator
+// render new p tag - if options.length > 0 "Here are your options" "No options"
+
 var app = {
     title: 'Indecision App',
-    subtitle: 'This is subtitle'
+    subtitle: 'Put your life in the hands of a computer',
+    options: ['One', 'Two']
 };
 
 var template = (
     <div>
-        <h1>{app.title}</h1>
-        <p>{app.subtitle}</p>
+    <h1>{app.title}</h1>
+    {app.subtitle && <p>{app.subtitle}</p>}
+    <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
 
         <ol>
             <li>Item One</li>
@@ -42,5 +51,4 @@ var template2 = (
 );
 
 var appRoot = document.getElementById('app');
-
-ReactDOM.render(template2, appRoot);
+ReactDOM.render(template, appRoot);
