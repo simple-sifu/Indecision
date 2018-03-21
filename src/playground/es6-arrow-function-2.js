@@ -23,11 +23,8 @@ const user = {
     // if function is set to object.property it is bound to the object,
     // but if just define an anonymous function within a function that function is not be bound to the object.
     printPlacesLived: function(){
-        console.log(this.name);
-        console.log(this.cities);
-        const that = this
-        this.cities.forEach(function (city){
-            console.log(that.name, ' has lived in ', city)
+        this.cities.forEach((city) => {
+            console.log(this.name, ' has lived in ', city)
         });
 
     }
