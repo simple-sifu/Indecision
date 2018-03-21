@@ -1,8 +1,7 @@
-'use strict';
-
-var square = function square(x) {
+const square = function(x){
     return x * x;
 };
+
 
 console.log(square(8));
 
@@ -12,9 +11,7 @@ console.log(square(8));
 // }
 
 //single expression
-var squareArrow = function squareArrow(x) {
-    return x * x;
-};
+const squareArrow = (x) => x * x;
 
 console.log(squareArrow(9));
 
@@ -23,14 +20,15 @@ console.log(squareArrow(9));
 // Create regular Arrow Function
 // Create arrow function using shorthand syntax
 
-var getFirstName = function getFirstName(fullName) {
-    return fullName.split(' ')[0];
-};
+const getFirstName = (fullName) => {
+    return fullName.split(' ')[0]
+}
 
 console.log(getFirstName('Mike Smith'));
 
-var getFirstNameArrow = function getFirstNameArrow(fullName) {
-    return fullName.split(' ')[0];
-};
+const getFirstNameArrow = (fullName) => fullName.split(' ')[0]
 
 console.log(getFirstName('James Monrow Sam'));
+
+
+
