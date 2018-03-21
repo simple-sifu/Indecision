@@ -28,9 +28,27 @@ var user = {
     printPlacesLived: function printPlacesLived() {
         var _this = this;
 
-        this.cities.forEach(function (city) {
-            console.log(_this.name, ' has lived in ', city);
+        return this.cities.map(function (city) {
+            return _this.name + ' has lived in ' + city;
         });
     }
 };
-user.printPlacesLived();
+console.log(user.printPlacesLived());
+
+// Challenge Area
+// numbers - array of numbers
+// multiplyBy - single number
+// multiply - returns a new array where the number have been multiplied
+
+var multiplier = {
+    numbers: [10, 20, 30, 40, 50],
+    multiplyBy: 4,
+    multiply: function multiply(multiplyBy) {
+        var _this2 = this;
+
+        return this.numbers.map(function (number) {
+            return number * _this2.multiplyBy;
+        });
+    }
+};
+console.log(multiplier.multiply());

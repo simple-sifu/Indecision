@@ -26,10 +26,22 @@ const user = {
     // can not use arrow function for function that maps to property but
     // we can use a ES6 method that will work with this keyword
     printPlacesLived(){
-        this.cities.forEach((city) => {
-            console.log(this.name, ' has lived in ', city)
-        });
-
+        return this.cities.map((city) => this.name + ' has lived in ' + city );
     }
 };
-user.printPlacesLived();
+console.log(user.printPlacesLived());
+
+// Challenge Area
+// numbers - array of numbers
+// multiplyBy - single number
+// multiply - returns a new array where the number have been multiplied
+
+const multiplier = {
+    numbers: [ 10, 20, 30, 40, 50],
+    multiplyBy: 4,
+    multiply(multiplyBy){
+        return this.numbers.map((number) => number * this.multiplyBy );
+    }
+
+}
+console.log(multiplier.multiply())
