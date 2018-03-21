@@ -22,7 +22,10 @@ const user = {
     cities: ['Philadelphia', 'New York', 'Dublin'],
     // if function is set to object.property it is bound to the object,
     // but if just define an anonymous function within a function that function is not be bound to the object.
-    printPlacesLived: function(){
+
+    // can not use arrow function for function that maps to property but
+    // we can use a ES6 method that will work with this keyword
+    printPlacesLived(){
         this.cities.forEach((city) => {
             console.log(this.name, ' has lived in ', city)
         });
