@@ -2,13 +2,6 @@
 
 console.log("app.js is running");
 
-// if statements
-// ternary operators
-// logical and operator
-
-// only render the subtitle (and p tag) if subtitle exist - logical and operator
-// render new p tag - if options.length > 0 "Here are your options" "No options"
-
 var app = {
     title: 'Indecision App',
     subtitle: 'Put your life in the hands of a computer',
