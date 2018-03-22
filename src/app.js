@@ -23,19 +23,13 @@ const onRemoveAll = (e) => {
     renderOption()
 };
 
-// use reference onFormSubmit instead of onFormSubmit() because that would return undefined.
 const appRoot = document.getElementById('app');
 
-
-// create render function that renders the new jsx
-// call it right away
-// call it after options array added to
-
-// create "Remove All" button above list
-// on click -> wipe the array -> rerender
-
-//jsx supports numbers, strings, and arrays, but ignores objects, boolean, nulls and undefineds
-const numbers = [15, 20, 25, 30]
+const onMakeDecision = () => {
+    const randomNumber = Math.floor(Math.random() * app.options.length);
+    const option = app.options[randomNumber];
+    alert(option);
+}
 
 const renderOption = () => {
     const template = (
@@ -44,15 +38,11 @@ const renderOption = () => {
         {app.subtitle && <p>{app.subtitle}</p>}
         <p>{app.options.length}</p>
         <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
+            <button disabled={app.options.length === 0} onClick={onMakeDecision}>What should I do?</button>
             <button onClick={onRemoveAll}>Remove All</button>
-            {
-               /* numbers.map((number) => {
-                    return <p key={number}>Number: {number} </p>;
-                })*/
-            }
             <ol>
-                {/* map over app.options getting back an array of lis (set key and text) */
-                  app.options.map((option) => <li key={option.indexOf(option)}> {option} </li>)
+                {
+                  app.options.map((option) => <li key={option}> {option} </li>)
                 }
             </ol>
             <form onSubmit={onFormSubmit}>

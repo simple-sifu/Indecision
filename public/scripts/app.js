@@ -24,18 +24,13 @@ var onRemoveAll = function onRemoveAll(e) {
     renderOption();
 };
 
-// use reference onFormSubmit instead of onFormSubmit() because that would return undefined.
 var appRoot = document.getElementById('app');
 
-// create render function that renders the new jsx
-// call it right away
-// call it after options array added to
-
-// create "Remove All" button above list
-// on click -> wipe the array -> rerender
-
-//jsx supports numbers, strings, and arrays, but ignores objects, boolean, nulls and undefineds
-var numbers = [15, 20, 25, 30];
+var onMakeDecision = function onMakeDecision() {
+    var randomNumber = Math.floor(Math.random() * app.options.length);
+    var option = app.options[randomNumber];
+    alert(option);
+};
 
 var renderOption = function renderOption() {
     var template = React.createElement(
@@ -63,17 +58,21 @@ var renderOption = function renderOption() {
         ),
         React.createElement(
             'button',
+            { disabled: app.options.length === 0, onClick: onMakeDecision },
+            'What should I do?'
+        ),
+        React.createElement(
+            'button',
             { onClick: onRemoveAll },
             'Remove All'
         ),
         React.createElement(
             'ol',
             null,
-            /* map over app.options getting back an array of lis (set key and text) */
             app.options.map(function (option) {
                 return React.createElement(
                     'li',
-                    { key: option.indexOf(option) },
+                    { key: option },
                     ' ',
                     option,
                     ' '
