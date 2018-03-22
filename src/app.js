@@ -34,7 +34,7 @@ const appRoot = document.getElementById('app');
 // create "Remove All" button above list
 // on click -> wipe the array -> rerender
 
-//jsx supports arrays, but ignores objects, boolean, nulls and undefineds
+//jsx supports numbers, strings, and arrays, but ignores objects, boolean, nulls and undefineds
 const numbers = [15, 20, 25, 30]
 
 const renderOption = () => {
@@ -52,9 +52,7 @@ const renderOption = () => {
             }
             <ol>
                 {/* map over app.options getting back an array of lis (set key and text) */
-                  app.options.map((option) => {
-                      return <li key={option}> Item: {option} </li>
-                  })
+                  app.options.map((option) => <li key={option.indexOf(option)}> {option} </li>)
                 }
             </ol>
             <form onSubmit={onFormSubmit}>
