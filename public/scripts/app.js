@@ -34,6 +34,9 @@ var appRoot = document.getElementById('app');
 // create "Remove All" button above list
 // on click -> wipe the array -> rerender
 
+//jsx supports arrays, but ignores objects, boolean, nulls and undefineds
+var numbers = [15, 20, 25, 30];
+
 var renderOption = function renderOption() {
     var template = React.createElement(
         'div',
@@ -66,16 +69,16 @@ var renderOption = function renderOption() {
         React.createElement(
             'ol',
             null,
-            React.createElement(
-                'li',
-                null,
-                'Item One'
-            ),
-            React.createElement(
-                'li',
-                null,
-                'Item Two'
-            )
+            /* map over app.options getting back an array of lis (set key and text) */
+            app.options.map(function (option) {
+                return React.createElement(
+                    'li',
+                    { key: option },
+                    ' Item: ',
+                    option,
+                    ' '
+                );
+            })
         ),
         React.createElement(
             'form',
