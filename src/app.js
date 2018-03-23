@@ -6,6 +6,23 @@
 // render is a method with no arguments that returns jsx. It is required when extending React.Component.
 //
 
+
+// Replacing JSX Constant with React Component in Renderer.
+
+class IndecisionApp extends React.Component {
+    render() {
+        return (
+            <div>
+                <Header />
+                <Action />
+                <Options />
+                <AddOption />
+            </div>
+        );
+    }
+}
+
+
 class Header extends React.Component {
     render() {
         return (
@@ -42,6 +59,7 @@ class Options extends React.Component {
         return (
             <div>
                 Options Component here
+                <Option />
             </div>
         );
     }
@@ -59,13 +77,14 @@ class AddOption extends React.Component {
     }
 }
 
-const jsx = (
-    <div>
-       <Header />
-       <Action />
-       <Options />
-       <AddOption />
-    </div>
-);
+class Option extends React.Component {
+    render(){
+        return (
+            <div>
+                Put Option Here
+            </div>
+        );
+    }
+}
 
-ReactDOM.render(jsx, document.getElementById('app'))
+ReactDOM.render(<IndecisionApp />, document.getElementById('app'))
