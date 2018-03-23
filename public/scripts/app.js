@@ -114,6 +114,7 @@ var Action = function (_React$Component3) {
 // Render the length of the array
 
 // Render new p tag for each option (set text, set key)
+// Component Props is a one-way pass.
 
 var Options = function (_React$Component4) {
     _inherits(Options, _React$Component4);
@@ -131,13 +132,7 @@ var Options = function (_React$Component4) {
                 "div",
                 null,
                 this.props.options.map(function (option) {
-                    return React.createElement(
-                        "p",
-                        { key: option },
-                        " ",
-                        option,
-                        " "
-                    );
+                    return React.createElement(Option, { key: option, optionText: option });
                 })
             );
         }
@@ -184,7 +179,7 @@ var Option = function (_React$Component6) {
             return React.createElement(
                 "div",
                 null,
-                "Put Option Here"
+                this.props.optionText
             );
         }
     }]);

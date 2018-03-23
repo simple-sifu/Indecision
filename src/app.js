@@ -54,13 +54,14 @@ class Action extends React.Component {
 // Render the length of the array
 
 // Render new p tag for each option (set text, set key)
+// Component Props is a one-way pass.
 
 class Options extends React.Component {
     render() {
         return (
             <div>
                 {
-                    this.props.options.map((option) => <p key={option}> {option} </p>)
+                    this.props.options.map((option) => <Option key={option} optionText={option} />)
                 }
             </div>
         );
@@ -81,7 +82,7 @@ class Option extends React.Component {
     render(){
         return (
             <div>
-                Put Option Here
+                {this.props.optionText}
             </div>
         );
     }
