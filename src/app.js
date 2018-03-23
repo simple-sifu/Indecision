@@ -1,4 +1,35 @@
-// To make components more dynamic we need to use component Props.
+// Losing of 'this' binding in class method
+// is not related to ES6 classes or React Components
+
+const obj = {
+    name: 'Vikram',
+    getName(){
+        return this.name
+    }
+}
+
+// object as a whole. 'this' works fine.
+console.log(obj.getName());
+
+// reference to function is called and is undefined !!
+// function by itself do not have a binding to 'this'
+let getName = obj.getName;
+console.log(getName());
+
+const func = function(){
+    console.log(this);
+}
+//will also fail
+func();
+
+getName = obj.getName.bind(obj);
+console.log(getName());
+
+getName = obj.getName.bind({name: Andrew});
+console.log(getName());
+
+
+
 class IndecisionApp extends React.Component {
     render() {
         const title = "Indecision";
@@ -66,7 +97,7 @@ class Action extends React.Component {
 class Options extends React.Component {
 
     handleRemoveAll(){
-        alert("Handle Remove All");
+        console.log("Remove All")
     }
     render() {
         return (

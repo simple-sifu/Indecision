@@ -8,7 +8,36 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// To make components more dynamic we need to use component Props.
+// Losing of 'this' binding in class method
+// is not related to ES6 classes or React Components
+
+var obj = {
+    name: 'Vikram',
+    getName: function getName() {
+        return this.name;
+    }
+};
+
+// object as a whole. 'this' works fine.
+console.log(obj.getName());
+
+// reference to function is called and is undefined !!
+// function by itself do not have a binding to 'this'
+var getName = obj.getName;
+console.log(getName());
+
+var func = function func() {
+    console.log(this);
+};
+//will also fail
+func();
+
+getName = obj.getName.bind(obj);
+console.log(getName());
+
+getName = obj.getName.bind({ name: Andrew });
+console.log(getName());
+
 var IndecisionApp = function (_React$Component) {
     _inherits(IndecisionApp, _React$Component);
 
@@ -137,7 +166,7 @@ var Options = function (_React$Component4) {
     _createClass(Options, [{
         key: "handleRemoveAll",
         value: function handleRemoveAll() {
-            alert("Handle Remove All");
+            console.log("Remove All");
         }
     }, {
         key: "render",
