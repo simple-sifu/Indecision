@@ -82,6 +82,11 @@ var Action = function (_React$Component3) {
     }
 
     _createClass(Action, [{
+        key: "handlePick",
+        value: function handlePick() {
+            alert('handle Pick');
+        }
+    }, {
         key: "render",
         value: function render() {
             return React.createElement(
@@ -89,7 +94,7 @@ var Action = function (_React$Component3) {
                 null,
                 React.createElement(
                     "button",
-                    null,
+                    { onClick: this.handlePick },
                     "\"What should I do?\""
                 )
             );
@@ -116,6 +121,10 @@ var Action = function (_React$Component3) {
 // Render new p tag for each option (set text, set key)
 // Component Props is a one-way pass.
 
+// Add Remove All button
+// Setup handleRemoveAll -> alert some message
+// setup onClick to fire the method
+
 var Options = function (_React$Component4) {
     _inherits(Options, _React$Component4);
 
@@ -126,11 +135,21 @@ var Options = function (_React$Component4) {
     }
 
     _createClass(Options, [{
+        key: "handleRemoveAll",
+        value: function handleRemoveAll() {
+            alert("Handle Remove All");
+        }
+    }, {
         key: "render",
         value: function render() {
             return React.createElement(
                 "div",
                 null,
+                React.createElement(
+                    "button",
+                    { onClick: this.handleRemoveAll },
+                    "RemoveAll"
+                ),
                 this.props.options.map(function (option) {
                     return React.createElement(Option, { key: option, optionText: option });
                 })
@@ -140,6 +159,10 @@ var Options = function (_React$Component4) {
 
     return Options;
 }(React.Component);
+
+// 1. Setup the form with Text Input and submit Button
+// 2. Wire up onSubmit
+// 3. handleAddOption -> fetch the value typed -> if value then alert
 
 var AddOption = function (_React$Component5) {
     _inherits(AddOption, _React$Component5);
@@ -151,12 +174,30 @@ var AddOption = function (_React$Component5) {
     }
 
     _createClass(AddOption, [{
+        key: "onFormSubmit",
+        value: function onFormSubmit(e) {
+            e.preventDefault();
+            var option = e.target.elements.option.value.trim();
+            if (option) {
+                alert("onSubmit");
+            }
+        }
+    }, {
         key: "render",
         value: function render() {
             return React.createElement(
                 "div",
                 null,
-                "Add Option Component here"
+                React.createElement(
+                    "form",
+                    { onSubmit: this.onFormSubmit },
+                    React.createElement("input", { type: "text", name: "option" }),
+                    React.createElement(
+                        "button",
+                        null,
+                        "Add Option"
+                    )
+                )
             );
         }
     }]);

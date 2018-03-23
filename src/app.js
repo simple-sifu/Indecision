@@ -30,10 +30,13 @@ class Header extends React.Component {
 }
 
 class Action extends React.Component {
+    handlePick(){
+        alert('handle Pick')
+    }
     render() {
         return (
             <div>
-                <button>"What should I do?"</button>
+                <button onClick={this.handlePick}>"What should I do?"</button>
             </div>
         );
     }
@@ -56,10 +59,19 @@ class Action extends React.Component {
 // Render new p tag for each option (set text, set key)
 // Component Props is a one-way pass.
 
+// Add Remove All button
+// Setup handleRemoveAll -> alert some message
+// setup onClick to fire the method
+
 class Options extends React.Component {
+
+    handleRemoveAll(){
+        alert("Handle Remove All");
+    }
     render() {
         return (
             <div>
+                <button onClick={this.handleRemoveAll}>RemoveAll</button>
                 {
                     this.props.options.map((option) => <Option key={option} optionText={option} />)
                 }
@@ -68,11 +80,25 @@ class Options extends React.Component {
     }
 }
 
+// 1. Setup the form with Text Input and submit Button
+// 2. Wire up onSubmit
+// 3. handleAddOption -> fetch the value typed -> if value then alert
+
 class AddOption extends React.Component {
+    onFormSubmit(e) {
+        e.preventDefault()
+        const option = e.target.elements.option.value.trim();
+        if (option){
+            alert("onSubmit");
+        }
+    }
     render() {
         return (
             <div>
-                Add Option Component here
+                <form onSubmit={this.onFormSubmit}>
+                    <input type="text" name="option" />
+                    <button>Add Option</button>
+                </form>
             </div>
         );
     }
