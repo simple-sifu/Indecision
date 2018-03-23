@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -8,16 +8,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// React Components are ES6 class that inherits React.Components.
-// React Components must use UpperCase names otherwise it will not render the component. React tries to figure
-// out if something is a component or HTML.
-// There are two global pkgs - React, ReactDOM
-// render is a method with no arguments that returns jsx. It is required when extending React.Component.
-//
-
-
-// Replacing JSX Constant with React Component in Renderer.
-
+// To make components more dynamic we need to use component Props.
 var IndecisionApp = function (_React$Component) {
     _inherits(IndecisionApp, _React$Component);
 
@@ -28,12 +19,13 @@ var IndecisionApp = function (_React$Component) {
     }
 
     _createClass(IndecisionApp, [{
-        key: 'render',
+        key: "render",
         value: function render() {
+            var title = "Indecision";
             return React.createElement(
-                'div',
+                "div",
                 null,
-                React.createElement(Header, null),
+                React.createElement(Header, { title: title }),
                 React.createElement(Action, null),
                 React.createElement(Options, null),
                 React.createElement(AddOption, null)
@@ -54,20 +46,22 @@ var Header = function (_React$Component2) {
     }
 
     _createClass(Header, [{
-        key: 'render',
+        key: "render",
         value: function render() {
+            // component will convert parameter being passed in as object props with key-value pair
+            console.log(this.props);
             return React.createElement(
-                'div',
+                "div",
                 null,
                 React.createElement(
-                    'h1',
+                    "h1",
                     null,
-                    'Indecision'
+                    this.props.title
                 ),
                 React.createElement(
-                    'h2',
+                    "h2",
                     null,
-                    'Put your life in the hands of a computer'
+                    "Put your life in the hands of a computer"
                 )
             );
         }
@@ -86,15 +80,15 @@ var Action = function (_React$Component3) {
     }
 
     _createClass(Action, [{
-        key: 'render',
+        key: "render",
         value: function render() {
             return React.createElement(
-                'div',
+                "div",
                 null,
                 React.createElement(
-                    'button',
+                    "button",
                     null,
-                    '"What should I do?"'
+                    "\"What should I do?\""
                 )
             );
         }
@@ -123,12 +117,12 @@ var Options = function (_React$Component4) {
     }
 
     _createClass(Options, [{
-        key: 'render',
+        key: "render",
         value: function render() {
             return React.createElement(
-                'div',
+                "div",
                 null,
-                'Options Component here',
+                "Options Component here",
                 React.createElement(Option, null)
             );
         }
@@ -136,8 +130,6 @@ var Options = function (_React$Component4) {
 
     return Options;
 }(React.Component);
-
-// AddOption -> AddOption Component here
 
 var AddOption = function (_React$Component5) {
     _inherits(AddOption, _React$Component5);
@@ -149,12 +141,12 @@ var AddOption = function (_React$Component5) {
     }
 
     _createClass(AddOption, [{
-        key: 'render',
+        key: "render",
         value: function render() {
             return React.createElement(
-                'div',
+                "div",
                 null,
-                'Add Option Component here'
+                "Add Option Component here"
             );
         }
     }]);
@@ -172,12 +164,12 @@ var Option = function (_React$Component6) {
     }
 
     _createClass(Option, [{
-        key: 'render',
+        key: "render",
         value: function render() {
             return React.createElement(
-                'div',
+                "div",
                 null,
-                'Put Option Here'
+                "Put Option Here"
             );
         }
     }]);

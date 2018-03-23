@@ -1,19 +1,10 @@
-
-// React Components are ES6 class that inherits React.Components.
-// React Components must use UpperCase names otherwise it will not render the component. React tries to figure
-// out if something is a component or HTML.
-// There are two global pkgs - React, ReactDOM
-// render is a method with no arguments that returns jsx. It is required when extending React.Component.
-//
-
-
-// Replacing JSX Constant with React Component in Renderer.
-
+// To make components more dynamic we need to use component Props.
 class IndecisionApp extends React.Component {
     render() {
+        const title = "Indecision";
         return (
             <div>
-                <Header />
+                <Header title={title}/>
                 <Action />
                 <Options />
                 <AddOption />
@@ -25,9 +16,11 @@ class IndecisionApp extends React.Component {
 
 class Header extends React.Component {
     render() {
+        // component will convert parameter being passed in as object props with key-value pair
+        console.log(this.props);
         return (
             <div>
-                <h1>Indecision</h1>
+                <h1>{this.props.title}</h1>
                 <h2>Put your life in the hands of a computer</h2>
             </div>
         );
@@ -64,8 +57,6 @@ class Options extends React.Component {
         );
     }
 }
-
-// AddOption -> AddOption Component here
 
 class AddOption extends React.Component {
     render() {
